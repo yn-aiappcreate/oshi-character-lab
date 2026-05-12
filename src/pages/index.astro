@@ -123,9 +123,9 @@ const featuredArticles = [
 							</ul>
 						</div>
 
-						<div class="visual-decoration dot-grid"></div>
-						<div class="visual-decoration star-one"></div>
-						<div class="visual-decoration star-two"></div>
+						<div class="dot-grid"></div>
+						<div class="star-one"></div>
+						<div class="star-two"></div>
 					</div>
 				</div>
 			</section>
@@ -257,7 +257,7 @@ const featuredArticles = [
 		position: relative;
 		z-index: 1;
 		display: grid;
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		gap: 44px;
 	}
 
@@ -680,15 +680,21 @@ const featuredArticles = [
 	.article-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 20px;
+		gap: 24px;
 		align-items: stretch;
 	}
 
+	.article-grid > * {
+		min-width: 0;
+	}
+
 	.article-card {
+		position: static;
 		display: flex;
 		flex-direction: column;
-		min-height: 270px;
-		height: 100%;
+		min-height: 320px;
+		height: auto;
+		margin: 0;
 		padding: 24px;
 		border: 1px solid #eee4eb;
 		border-radius: 24px;
@@ -709,6 +715,8 @@ const featuredArticles = [
 	}
 
 	.tag {
+		display: inline-flex;
+		align-items: center;
 		width: fit-content;
 		padding: 5px 10px;
 		border-radius: 999px;
