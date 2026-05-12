@@ -4,6 +4,32 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
+const topics = [
+	{
+		title: 'キャラグリ初心者向けの準備',
+		description: '初めてキャラクターに会いに行く前に、知っておきたい基本を整理します。',
+	},
+	{
+		title: 'テーマパーク遠征の持ち物',
+		description: 'スマホ・モバイルバッテリー・推しグッズなど、身軽に動くための準備をまとめます。',
+	},
+	{
+		title: '一人テーマパークの楽しみ方',
+		description: '一人だからこそ推しキャラ目的で動きやすい理由と、不安を減らす考え方を紹介します。',
+	},
+	{
+		title: '写真・会話・ポーズのコツ',
+		description: '撮影のお願い方、キャラクターへの声かけ、自然に楽しむためのコツをまとめます。',
+	},
+];
+
+const readers = [
+	'初めてキャラグリに行く',
+	'一人でテーマパークに行くのが不安',
+	'推しキャラに会う前に準備しておきたい',
+	'写真や会話で失敗したくない',
+];
+
 const featuredArticles = [
 	{
 		title: 'キャラグリ初心者は何から始めればいい？',
@@ -36,13 +62,6 @@ const featuredArticles = [
 		tag: '撮影',
 	},
 ];
-
-const siteTopics = [
-	'キャラグリ初心者向けの準備',
-	'テーマパーク遠征の持ち物',
-	'一人テーマパークの楽しみ方',
-	'写真・会話・ポーズのコツ',
-];
 ---
 
 <!doctype html>
@@ -52,108 +71,174 @@ const siteTopics = [
 	</head>
 	<body>
 		<Header />
+
 		<main>
 			<section class="hero">
-				<p class="site-label">キャラグリ・テーマパーク遠征の攻略ノート</p>
-				<h1>
-					推しキャラに会う前に、<br />
-					知っておきたいこと。
-				</h1>
-				<p class="lead">
-					推しキャラ遭遇研究所は、キャラクターグリーティングを中心に、準備・持ち物・撮影・会話・当日の動き方をまとめる小さな専門サイトです。
-				</p>
-				<div class="hero-actions">
-					<a class="primary-button" href="/blog/">記事一覧を見る</a>
-					<a class="secondary-button" href="/about/">このサイトについて</a>
+				<div class="section-inner hero-inner">
+					<p class="site-label">キャラグリ・テーマパーク遠征の攻略ノート</p>
+
+					<h1 class="hero-title">
+						<span class="hero-line">推しキャラに会う前に、</span>
+						<span class="hero-line">知っておきたいこと。</span>
+					</h1>
+
+					<p class="lead">
+						キャラクターグリーティングを中心に、準備・持ち物・撮影・会話・当日の動き方をまとめる小さな専門サイトです。
+					</p>
+
+					<div class="hero-actions">
+						<a class="primary-button" href="/blog/">記事一覧を見る</a>
+						<a class="secondary-button" href="/about/">このサイトについて</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="for-readers">
+				<div class="section-inner">
+					<div class="soft-panel">
+						<div class="panel-copy">
+							<p class="section-kicker">For beginners</p>
+							<h2>こんな人向けのサイトです</h2>
+						</div>
+
+						<ul class="reader-list">
+							{readers.map((reader) => <li>{reader}</li>)}
+						</ul>
+					</div>
 				</div>
 			</section>
 
 			<section class="topics">
-				<h2>このサイトで扱うこと</h2>
-				<ul class="topic-list">
-					{siteTopics.map((topic) => <li>{topic}</li>)}
-				</ul>
+				<div class="section-inner">
+					<div class="section-heading">
+						<p class="section-kicker">Guide themes</p>
+						<h2>このサイトで扱うこと</h2>
+					</div>
+
+					<div class="topic-grid">
+						{topics.map((topic, index) => (
+							<article class="topic-card">
+								<span class="topic-icon">{index + 1}</span>
+								<h3>{topic.title}</h3>
+								<p>{topic.description}</p>
+							</article>
+						))}
+					</div>
+				</div>
 			</section>
 
 			<section class="featured">
-				<div class="section-heading">
-					<h2>まず読んでほしい記事</h2>
-					<p>
-						初めてキャラグリに行く人や、一人でテーマパークに行くのが少し不安な人向けに、最初に読みやすい記事をまとめました。
-					</p>
-				</div>
+				<div class="section-inner">
+					<div class="section-heading">
+						<p class="section-kicker">Start here</p>
+						<h2>まず読んでほしい記事</h2>
+						<p>
+							初めてキャラグリに行く人や、一人でテーマパークに行くのが少し不安な人向けに、最初に読みやすい記事をまとめました。
+						</p>
+					</div>
 
-				<div class="article-grid">
-					{featuredArticles.map((article) => (
-						<a class="article-card" href={article.href}>
-							<span class="tag">{article.tag}</span>
-							<h3>{article.title}</h3>
-							<p>{article.description}</p>
-							<span class="read-more">この記事を読む</span>
-						</a>
-					))}
+					<div class="article-grid">
+						{featuredArticles.map((article) => (
+							<a class="article-card" href={article.href}>
+								<span class="tag">{article.tag}</span>
+								<h3>{article.title}</h3>
+								<p>{article.description}</p>
+								<span class="read-more">この記事を読む →</span>
+							</a>
+						))}
+					</div>
 				</div>
 			</section>
 		</main>
+
 		<Footer />
 	</body>
 </html>
 
 <style>
 	:global(body) {
+		margin: 0;
 		font-family:
+			system-ui,
 			-apple-system,
 			BlinkMacSystemFont,
 			'Hiragino Sans',
-			'Hiragino Kaku Gothic ProN',
+			'Noto Sans JP',
 			'Yu Gothic',
 			'YuGothic',
 			'Meiryo',
 			sans-serif;
-		background: #fafafa;
-		color: #151821;
+		color: #2f2933;
+		background: #fffafc;
+		line-height: 1.8;
 	}
 
 	main {
-		width: min(960px, calc(100% - 2rem));
+		width: 100%;
+		max-width: none !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	section {
+		padding: 72px 24px;
+	}
+
+	.section-inner {
+		max-width: 1120px;
 		margin: 0 auto;
-		padding: 3.5rem 0 5rem;
 	}
 
 	.hero {
-		padding: 2.5rem 0 2rem;
+		padding-top: 84px;
+		padding-bottom: 56px;
+		background:
+			radial-gradient(circle at 20% 0%, rgba(255, 224, 236, 0.5), transparent 32%),
+			linear-gradient(180deg, #fff7fb 0%, #ffffff 74%);
 	}
 
-	.site-label {
-		margin: 0 0 0.9rem;
-		color: #51607a;
-		font-size: 0.95rem;
-		font-weight: 700;
-		line-height: 1.7;
-	}
-
-	h1 {
+	.hero-inner {
 		max-width: 960px;
+		text-align: center;
+	}
+
+	.site-label,
+	.section-kicker {
+		margin: 0 0 12px;
+		color: #8b6b7d;
+		font-size: 0.92rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+	}
+
+	.hero-title {
 		margin: 0;
-		font-size: clamp(2rem, 4vw, 2.8rem);
-		line-height: 1.35;
-		letter-spacing: -0.03em;
+		color: #11131a;
+		font-size: clamp(44px, 6vw, 76px);
 		font-weight: 800;
+		line-height: 1.12;
+		letter-spacing: 0.01em;
+	}
+
+	.hero-line {
+		display: block;
+		white-space: nowrap;
 	}
 
 	.lead {
-		max-width: 720px;
-		margin: 1.4rem 0 0;
-		color: #374151;
-		font-size: 1.08rem;
-		line-height: 2;
+		max-width: 640px;
+		margin: 24px auto 0;
+		color: #5f5a66;
+		font-size: 1.06rem;
+		line-height: 1.95;
 	}
 
 	.hero-actions {
 		display: flex;
+		justify-content: center;
 		flex-wrap: wrap;
-		gap: 0.8rem;
-		margin-top: 2rem;
+		gap: 14px;
+		margin-top: 32px;
 	}
 
 	.primary-button,
@@ -161,92 +246,185 @@ const siteTopics = [
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.8rem 1.15rem;
+		padding: 14px 22px;
 		border-radius: 999px;
 		font-weight: 700;
 		text-decoration: none;
-		line-height: 1;
+		transition:
+			transform 140ms ease,
+			box-shadow 140ms ease,
+			background 140ms ease,
+			border-color 140ms ease;
 	}
 
 	.primary-button {
-		background: #1f2937;
+		background: #2f2433;
 		color: #fff;
+		box-shadow: 0 10px 24px rgba(47, 36, 51, 0.12);
 	}
 
 	.secondary-button {
-		border: 1px solid #d9dee8;
-		color: #1f2937;
+		border: 1px solid #e7dce5;
 		background: #fff;
+		color: #2f2433;
 	}
 
 	.primary-button:hover,
 	.secondary-button:hover {
-		opacity: 0.86;
+		transform: translateY(-1px);
 	}
 
-	.topics,
-	.featured {
-		margin-top: 3.5rem;
+	.for-readers {
+		padding-top: 32px;
+		padding-bottom: 56px;
+		background: #fff;
 	}
 
-	h2 {
-		margin: 0 0 1rem;
-		font-size: clamp(1.7rem, 4vw, 2.4rem);
+	.soft-panel {
+		display: grid;
+		gap: 28px;
+		padding: 36px;
+		border: 1px solid #f0e6ed;
+		border-radius: 28px;
+		background: #fff8fb;
+	}
+
+	.panel-copy {
+		text-align: center;
+	}
+
+	.panel-copy h2 {
+		margin: 0;
+		color: #11131a;
+		font-size: clamp(28px, 3.2vw, 40px);
 		line-height: 1.35;
-		letter-spacing: -0.02em;
+		letter-spacing: 0.02em;
+	}
+
+	.reader-list {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 14px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.reader-list li {
+		position: relative;
+		display: flex;
+		align-items: center;
+		min-height: 82px;
+		padding: 18px 18px 18px 42px;
+		border: 1px solid #f4eaf0;
+		border-radius: 18px;
+		background: #ffffff;
+		color: #4d4652;
+		font-size: 0.96rem;
+		font-weight: 700;
+		line-height: 1.65;
+	}
+
+	.reader-list li::before {
+		content: '';
+		position: absolute;
+		left: 18px;
+		top: 50%;
+		width: 8px;
+		height: 8px;
+		border-radius: 999px;
+		background: #e3abc3;
+		transform: translateY(-50%);
 	}
 
 	.section-heading {
-		max-width: 720px;
-		margin-bottom: 1.6rem;
+		max-width: 680px;
+		margin-bottom: 36px;
+	}
+
+	.section-heading h2 {
+		margin: 0;
+		color: #11131a;
+		font-size: clamp(30px, 4vw, 46px);
+		line-height: 1.25;
+		letter-spacing: 0.02em;
 	}
 
 	.section-heading p {
-		margin: 0;
-		color: #4b5563;
+		max-width: 640px;
+		margin: 16px 0 0;
+		color: #625b66;
 		font-size: 1rem;
 		line-height: 1.9;
 	}
 
-	.topic-list {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 0.8rem;
-		padding: 0;
-		margin: 0;
-		list-style: none;
-		max-width: 760px;
+	.topics {
+		background: #fffafc;
 	}
 
-	.topic-list li {
-		padding: 1rem 1.1rem;
-		border: 1px solid #d9dee8;
-		border-radius: 0.9rem;
+	.topic-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 18px;
+	}
+
+	.topic-card {
+		min-height: 210px;
+		padding: 24px;
+		border: 1px solid #f0e6ed;
+		border-radius: 20px;
+		background: #ffffff;
+		box-shadow: 0 8px 24px rgba(47, 36, 51, 0.04);
+	}
+
+	.topic-icon {
+		display: inline-flex;
+		width: 34px;
+		height: 34px;
+		align-items: center;
+		justify-content: center;
+		border-radius: 999px;
+		background: #fff0f6;
+		color: #8d5f76;
+		font-size: 0.9rem;
+		font-weight: 800;
+	}
+
+	.topic-card h3 {
+		margin: 18px 0 8px;
+		color: #2f2933;
+		font-size: 1.22rem;
+		line-height: 1.5;
+	}
+
+	.topic-card p {
+		margin: 0;
+		color: #625b66;
+		font-size: 0.96rem;
+		line-height: 1.85;
+	}
+
+	.featured {
 		background: #fff;
-		color: #283142;
-		font-size: 1rem;
-		font-weight: 700;
-		line-height: 1.6;
-		box-shadow: 0 6px 16px rgba(15, 23, 42, 0.035);
 	}
 
 	.article-grid {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1rem;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 18px;
 	}
 
 	.article-card {
 		display: flex;
 		flex-direction: column;
-		min-height: 190px;
-		padding: 1.25rem;
-		border: 1px solid #d9dee8;
-		border-radius: 1rem;
+		min-height: 280px;
+		padding: 24px;
+		border: 1px solid #eee4eb;
+		border-radius: 24px;
 		background: #fff;
 		color: inherit;
 		text-decoration: none;
-		box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+		box-shadow: 0 8px 24px rgba(47, 36, 51, 0.035);
 		transition:
 			transform 140ms ease,
 			box-shadow 140ms ease,
@@ -255,65 +433,107 @@ const siteTopics = [
 
 	.article-card:hover {
 		transform: translateY(-2px);
-		border-color: #9aa8bd;
-		box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+		border-color: #e0ccd8;
+		box-shadow: 0 14px 32px rgba(47, 36, 51, 0.08);
 	}
 
 	.tag {
 		width: fit-content;
-		padding: 0.25rem 0.6rem;
+		padding: 5px 10px;
 		border-radius: 999px;
-		background: #eef2f7;
-		color: #45556c;
+		background: #f7edf3;
+		color: #7d5a6d;
 		font-size: 0.78rem;
-		font-weight: 700;
+		font-weight: 800;
 		line-height: 1.4;
 	}
 
 	.article-card h3 {
-		margin: 0.85rem 0 0.45rem;
-		font-size: 1.22rem;
+		margin: 16px 0 10px;
+		color: #2f2933;
+		font-size: 20px;
 		line-height: 1.55;
-		letter-spacing: -0.01em;
+		letter-spacing: 0.01em;
 	}
 
 	.article-card p {
 		margin: 0;
-		color: #4b5563;
-		font-size: 0.98rem;
+		color: #625b66;
+		font-size: 14px;
 		line-height: 1.85;
 	}
 
 	.read-more {
 		margin-top: auto;
-		padding-top: 1rem;
-		color: #1f2937;
-		font-weight: 700;
+		padding-top: 20px;
+		color: #2f2433;
+		font-size: 0.95rem;
+		font-weight: 800;
 	}
 
-	@media (max-width: 760px) {
-		main {
-			width: min(100% - 1.25rem, 960px);
-			padding-top: 2rem;
+	@media (max-width: 1024px) {
+		.article-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.reader-list {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 720px) {
+		section {
+			padding: 56px 18px;
 		}
 
 		.hero {
-			padding-top: 1.5rem;
+			padding-top: 64px;
+			padding-bottom: 40px;
 		}
 
-		h1 {
-			font-size: 2rem;
-			line-height: 1.4;
+		.hero-inner {
+			text-align: left;
 		}
 
-		.topic-list {
-			grid-template-columns: 1fr;
+		.hero-title {
+			font-size: clamp(36px, 11vw, 48px);
+			line-height: 1.18;
 		}
 
+		.hero-line {
+			white-space: normal;
+		}
+
+		.lead {
+			margin-left: 0;
+			margin-right: 0;
+			font-size: 1rem;
+		}
+
+		.hero-actions {
+			justify-content: flex-start;
+		}
+
+		.soft-panel {
+			padding: 24px;
+			border-radius: 22px;
+		}
+
+		.panel-copy {
+			text-align: left;
+		}
+
+		.reader-list,
+		.topic-grid,
 		.article-grid {
 			grid-template-columns: 1fr;
 		}
 
+		.reader-list li {
+			min-height: auto;
+		}
+
+		.topic-card,
 		.article-card {
 			min-height: auto;
 		}

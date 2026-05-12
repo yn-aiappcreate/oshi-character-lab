@@ -5,73 +5,93 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
+		<a class="site-title" href="/">{SITE_TITLE}</a>
+		<div class="nav-links">
+			<HeaderLink href="/blog">記事一覧</HeaderLink>
+			<HeaderLink href="/blog/character-greeting-beginner/">はじめての方へ</HeaderLink>
+			<HeaderLink href="/about">このサイトについて</HeaderLink>
 		</div>
 	</nav>
 </header>
 
 <style>
 	header {
+		position: sticky;
+		top: 0;
+		z-index: 20;
 		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
+		padding: 0 24px;
+		border-bottom: 1px solid #f1e8ee;
+		background: rgba(255, 255, 255, 0.82);
+		backdrop-filter: blur(12px);
 	}
 
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
-		max-width: 1100px;
+		gap: 24px;
+		max-width: 1120px;
+		min-height: 64px;
 		margin: 0 auto;
 	}
 
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
+	.site-title {
+		color: #2f2933;
+		font-size: 1rem;
+		font-weight: 800;
 		text-decoration: none;
+		white-space: nowrap;
 	}
 
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-
-	.internal-links {
+	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: 0.25rem;
+		gap: 4px;
+	}
+
+	.nav-links a {
+		padding: 10px 12px;
+		border-radius: 999px;
+		color: #4b4450;
+		font-size: 0.95rem;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.nav-links a:hover {
+		background: #fff1f7;
+		color: #2f2933;
+	}
+
+	.nav-links a.active {
+		background: #2f2433;
+		color: #fff;
 	}
 
 	@media (max-width: 720px) {
+		header {
+			padding: 0 16px;
+		}
+
 		nav {
+			min-height: auto;
+			padding: 12px 0;
 			align-items: flex-start;
 			flex-direction: column;
-			padding: 0.75rem 0;
+			gap: 8px;
 		}
 
-		nav a {
-			padding: 0.35rem 0.5rem;
+		.nav-links {
+			width: 100%;
+			overflow-x: auto;
+			padding-bottom: 2px;
+			white-space: nowrap;
 		}
 
-		.internal-links {
-			flex-wrap: wrap;
+		.nav-links a {
+			font-size: 0.88rem;
+			padding: 8px 10px;
 		}
 	}
 </style>
