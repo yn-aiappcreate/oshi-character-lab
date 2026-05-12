@@ -6,23 +6,23 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 const topics = [
 	{
-		title: '遠征準備',
-		description: '初めてキャラクターに会いに行く前に、知っておきたい準備を整理します。',
+		title: 'キャラグリ初心者向けの準備',
+		description: '初めてキャラクターに会いに行く前に、知っておきたい基本を整理します。',
 		icon: 'ticket',
 	},
 	{
-		title: '持ち物データ',
-		description: 'スマホ・モバイルバッテリー・推しグッズなど、身軽に動くための持ち物をまとめます。',
+		title: 'テーマパーク遠征の持ち物',
+		description: 'スマホ・モバイルバッテリー・推しグッズなど、身軽に動くための準備をまとめます。',
 		icon: 'bag',
 	},
 	{
-		title: '一人テーマパーク調査',
+		title: '一人テーマパークの楽しみ方',
 		description: '一人だからこそ推しキャラ目的で動きやすい理由と、不安を減らす考え方を紹介します。',
 		icon: 'map',
 	},
 	{
-		title: '撮影・会話ログ',
-		description: '写真のお願い方、キャラクターへの声かけ、ポーズ指定のコツをまとめます。',
+		title: '写真・会話・ポーズのコツ',
+		description: '撮影のお願い方、キャラクターへの声かけ、自然に楽しむためのコツをまとめます。',
 		icon: 'camera',
 	},
 ];
@@ -39,36 +39,33 @@ const featuredArticles = [
 		title: 'キャラグリ初心者は何から始めればいい？',
 		description: '初めてキャラグリに行く人向けに、準備・当日の動き方・不安の減らし方をまとめます。',
 		href: '/blog/character-greeting-beginner/',
-		tag: '初心者向け調査ノート',
-		featured: true,
+		tag: '初心者向け',
 	},
 	{
 		title: '一人でテーマパークに行くのは変？',
 		description: '一人だからこそ推しキャラ目的で動きやすい理由と、気楽に楽しむ考え方を整理します。',
 		href: '/blog/solo-theme-park/',
-		tag: '一人遠征',
+		tag: '一人参加',
 	},
 	{
 		title: 'キャラグリに必要な持ち物リスト',
 		description: 'スマホ・モバイルバッテリー・推しグッズなど、荷物を増やしすぎない準備を紹介します。',
 		href: '/blog/character-greeting-items/',
-		tag: '持ち物データ',
+		tag: '持ち物',
 	},
 	{
 		title: 'キャラグリで何を話せばいい？',
 		description: 'キャラクターが返しやすい会話ネタ、避けたい話題、写真前の声かけをまとめます。',
 		href: '/blog/character-greeting-talk/',
-		tag: '会話メモ',
+		tag: '会話',
 	},
 	{
 		title: 'キャラグリで写真を撮るコツ',
 		description: 'スマホ撮影、ポーズのお願い方、ツーショット、撮影後のお礼まで実体験ベースで解説します。',
 		href: '/blog/character-greeting-photo/',
-		tag: '撮影ログ',
+		tag: '撮影',
 	},
 ];
-
-const [featureArticle, ...regularArticles] = featuredArticles;
 ---
 
 <!doctype html>
@@ -81,13 +78,13 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 
 		<main>
 			<section class="hero">
-				<div class="section-inner hero-grid">
+				<div class="section-inner hero-inner">
 					<div class="hero-copy">
 						<p class="site-label">キャラグリ・テーマパーク遠征の攻略ノート</p>
 
 						<h1 class="hero-title">
-							<span class="hero-line">推しキャラに会う前に、</span>
-							<span class="hero-line">知っておきたいこと。</span>
+							<span>推しキャラに会う前に、</span>
+							<span>知っておきたいこと。</span>
 						</h1>
 
 						<p class="lead">
@@ -99,32 +96,26 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 						</p>
 
 						<div class="hero-actions">
-							<a class="primary-button" href="/blog/">観測メモを読む</a>
-							<a class="secondary-button" href="/about/">研究所について</a>
+							<a class="primary-button" href="/blog/">記事一覧を見る</a>
+							<a class="secondary-button" href="/about/">このサイトについて</a>
 						</div>
 					</div>
 
 					<div class="hero-visual" aria-hidden="true">
-						<div class="map-line map-line-one"></div>
-						<div class="map-line map-line-two"></div>
-						<div class="star star-one"></div>
-						<div class="star star-two"></div>
-						<div class="dot-grid"></div>
-
-						<div class="expedition-card ticket-card">
-							<span class="mini-label">TICKET</span>
-							<span class="ticket-title">遠征パス</span>
+						<div class="visual-card ticket-card">
+							<span class="visual-label">TICKET</span>
+							<strong>遠征パス</strong>
 							<span class="ticket-line"></span>
 						</div>
 
-						<div class="expedition-card camera-card">
-							<span class="icon-shape camera-shape"></span>
-							<span>撮影ログ</span>
+						<div class="visual-card camera-card">
+							<span class="visual-icon camera-icon"></span>
+							<strong>撮影メモ</strong>
 						</div>
 
-						<div class="expedition-card memo-card">
-							<span class="mini-label">OBSERVATION</span>
-							<span>観測メモ</span>
+						<div class="visual-card memo-card">
+							<span class="visual-label">CHECKLIST</span>
+							<strong>準備メモ</strong>
 							<ul>
 								<li>持ち物</li>
 								<li>会話</li>
@@ -132,10 +123,9 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 							</ul>
 						</div>
 
-						<div class="expedition-card bag-card">
-							<span class="icon-shape bag-shape"></span>
-							<span>推し活遠征セット</span>
-						</div>
+						<div class="visual-decoration dot-grid"></div>
+						<div class="visual-decoration star-one"></div>
+						<div class="visual-decoration star-two"></div>
 					</div>
 				</div>
 			</section>
@@ -144,7 +134,7 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 				<div class="section-inner">
 					<div class="soft-panel">
 						<div class="panel-copy">
-							<p class="section-kicker">For beginners</p>
+							<p class="section-kicker">はじめての人へ</p>
 							<h2>こんな人向けのサイトです</h2>
 						</div>
 
@@ -158,8 +148,8 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 			<section class="topics">
 				<div class="section-inner">
 					<div class="section-heading">
-						<p class="section-kicker">Research themes</p>
-						<h2>この研究所で扱うテーマ</h2>
+						<p class="section-kicker">扱うテーマ</p>
+						<h2>このサイトで扱うこと</h2>
 						<p>
 							キャラグリ初心者が迷いやすい準備・持ち物・一人参加・撮影や会話を、実体験ベースの攻略メモとして整理しています。
 						</p>
@@ -180,31 +170,22 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 			<section class="featured">
 				<div class="section-inner">
 					<div class="section-heading">
-						<p class="section-kicker">Observation logs</p>
-						<h2>まず読んでほしい観測メモ</h2>
+						<p class="section-kicker">まずはこちら</p>
+						<h2>まず読んでほしい攻略記事</h2>
 						<p>
 							初めてキャラグリに行く人や、一人でテーマパークに行くのが少し不安な人向けに、最初に読みやすい記事をまとめました。
 						</p>
 					</div>
 
-					<div class="article-layout">
-						<a class="article-card feature-card" href={featureArticle.href}>
-							<span class="tag">{featureArticle.tag}</span>
-							<h3>{featureArticle.title}</h3>
-							<p>{featureArticle.description}</p>
-							<span class="read-more">この記事を読む →</span>
-						</a>
-
-						<div class="regular-grid">
-							{regularArticles.map((article) => (
-								<a class="article-card" href={article.href}>
-									<span class="tag">{article.tag}</span>
-									<h3>{article.title}</h3>
-									<p>{article.description}</p>
-									<span class="read-more">この記事を読む →</span>
-								</a>
-							))}
-						</div>
+					<div class="article-grid">
+						{featuredArticles.map((article) => (
+							<a class="article-card" href={article.href}>
+								<span class="tag">{article.tag}</span>
+								<h3>{article.title}</h3>
+								<p>{article.description}</p>
+								<span class="read-more">この記事を読む →</span>
+							</a>
+						))}
 					</div>
 				</div>
 			</section>
@@ -251,11 +232,11 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 
 	.hero {
 		position: relative;
-		padding-top: 112px;
-		padding-bottom: 96px;
+		padding-top: 108px;
+		padding-bottom: 88px;
 		background:
-			radial-gradient(circle at 14% 12%, rgba(255, 224, 236, 0.7), transparent 30%),
-			radial-gradient(circle at 88% 18%, rgba(238, 243, 248, 0.9), transparent 26%),
+			radial-gradient(circle at 12% 10%, rgba(255, 224, 236, 0.72), transparent 30%),
+			radial-gradient(circle at 88% 18%, rgba(238, 243, 248, 0.9), transparent 28%),
 			linear-gradient(180deg, #fff7fb 0%, #fffdf8 78%);
 	}
 
@@ -264,21 +245,26 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 		position: absolute;
 		inset: 0;
 		pointer-events: none;
-		opacity: 0.45;
+		opacity: 0.38;
 		background-image:
 			linear-gradient(90deg, rgba(124, 77, 102, 0.08) 1px, transparent 1px),
 			linear-gradient(rgba(124, 77, 102, 0.08) 1px, transparent 1px);
 		background-size: 44px 44px;
-		mask-image: linear-gradient(180deg, black 0%, transparent 80%);
+		mask-image: linear-gradient(180deg, black 0%, transparent 82%);
 	}
 
-	.hero-grid {
+	.hero-inner {
 		position: relative;
 		z-index: 1;
 		display: grid;
-		grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-		gap: 56px;
-		align-items: center;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 44px;
+	}
+
+	.hero-copy {
+		max-width: 900px;
+		margin: 0 auto;
+		text-align: center;
 	}
 
 	.site-label,
@@ -293,20 +279,19 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 	.hero-title {
 		margin: 0;
 		color: #11131a;
-		font-size: clamp(42px, 5.4vw, 72px);
+		font-size: clamp(42px, 6vw, 72px);
 		font-weight: 850;
-		line-height: 1.13;
+		line-height: 1.16;
 		letter-spacing: 0.01em;
 	}
 
-	.hero-line {
+	.hero-title span {
 		display: block;
-		white-space: nowrap;
 	}
 
 	.lead {
 		max-width: 640px;
-		margin: 24px 0 0;
+		margin: 24px auto 0;
 		color: #5f5a66;
 		font-size: 1.08rem;
 		line-height: 1.95;
@@ -314,16 +299,20 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 
 	.human-copy {
 		max-width: 620px;
-		margin: 18px 0 0;
-		padding-left: 16px;
-		border-left: 3px solid #e6c3d3;
+		margin: 18px auto 0;
+		padding: 14px 18px;
+		border: 1px solid #f0e0ea;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.72);
 		color: #6f6673;
 		font-size: 0.98rem;
-		line-height: 1.9;
+		line-height: 1.85;
+		text-align: left;
 	}
 
 	.hero-actions {
 		display: flex;
+		justify-content: center;
 		flex-wrap: wrap;
 		gap: 14px;
 		margin-top: 34px;
@@ -364,115 +353,55 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 
 	.hero-visual {
 		position: relative;
-		min-height: 430px;
+		width: min(100%, 760px);
+		min-height: 240px;
+		margin: 0 auto;
 		border: 1px solid #eee4eb;
-		border-radius: 36px;
+		border-radius: 32px;
 		background:
 			linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(248, 237, 243, 0.78)),
 			#fff;
-		box-shadow: 0 24px 60px rgba(47, 36, 51, 0.09);
+		box-shadow: 0 20px 48px rgba(47, 36, 51, 0.08);
 		overflow: hidden;
 	}
 
-	.map-line {
-		position: absolute;
-		border: 1px dashed rgba(124, 77, 102, 0.22);
-		border-color: rgba(124, 77, 102, 0.22) transparent transparent transparent;
-		border-radius: 50%;
-	}
-
-	.map-line-one {
-		width: 340px;
-		height: 180px;
-		left: -70px;
-		top: 92px;
-		transform: rotate(-12deg);
-	}
-
-	.map-line-two {
-		width: 380px;
-		height: 220px;
-		right: -120px;
-		bottom: 30px;
-		transform: rotate(16deg);
-	}
-
-	.star {
-		position: absolute;
-		width: 14px;
-		height: 14px;
-		background: #d9a5bc;
-		clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
-		opacity: 0.5;
-	}
-
-	.star-one {
-		top: 42px;
-		right: 64px;
-	}
-
-	.star-two {
-		left: 62px;
-		bottom: 54px;
-		transform: scale(0.8);
-	}
-
-	.dot-grid {
-		position: absolute;
-		inset: 32px;
-		opacity: 0.18;
-		background-image: radial-gradient(#7c4d66 1px, transparent 1px);
-		background-size: 18px 18px;
-	}
-
-	.expedition-card {
+	.visual-card {
 		position: absolute;
 		display: grid;
 		gap: 8px;
-		padding: 18px;
+		padding: 16px 18px;
 		border: 1px solid rgba(238, 228, 235, 0.95);
-		border-radius: 22px;
-		background: rgba(255, 255, 255, 0.86);
-		box-shadow: 0 12px 30px rgba(47, 36, 51, 0.08);
+		border-radius: 20px;
+		background: rgba(255, 255, 255, 0.88);
+		box-shadow: 0 10px 24px rgba(47, 36, 51, 0.07);
 		backdrop-filter: blur(10px);
 		color: #2f2933;
 		font-weight: 800;
 	}
 
 	.ticket-card {
-		left: 40px;
-		top: 42px;
+		left: 34px;
+		top: 34px;
 		width: 190px;
-		transform: rotate(-4deg);
+		transform: rotate(-3deg);
 	}
 
 	.camera-card {
-		right: 44px;
-		top: 72px;
+		right: 54px;
+		top: 42px;
 		width: 150px;
 	}
 
 	.memo-card {
-		left: 92px;
-		bottom: 52px;
-		width: 210px;
+		left: 280px;
+		bottom: 28px;
+		width: 200px;
 	}
 
-	.bag-card {
-		right: 52px;
-		bottom: 78px;
-		width: 170px;
-		transform: rotate(3deg);
-	}
-
-	.mini-label {
+	.visual-label {
 		color: #8b6b7d;
 		font-size: 0.72rem;
 		letter-spacing: 0.08em;
-	}
-
-	.ticket-title {
-		font-size: 1.25rem;
 	}
 
 	.ticket-line {
@@ -489,7 +418,7 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 		);
 	}
 
-	.icon-shape {
+	.visual-icon {
 		display: block;
 		width: 42px;
 		height: 34px;
@@ -498,7 +427,7 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 		background: #fff8fb;
 	}
 
-	.camera-shape::before {
+	.camera-icon::before {
 		content: '';
 		display: block;
 		width: 13px;
@@ -506,23 +435,6 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 		margin: 9px auto 0;
 		border: 2px solid #7c4d66;
 		border-radius: 999px;
-	}
-
-	.bag-shape {
-		position: relative;
-		border-radius: 12px 12px 14px 14px;
-	}
-
-	.bag-shape::before {
-		content: '';
-		position: absolute;
-		left: 10px;
-		top: -10px;
-		width: 18px;
-		height: 14px;
-		border: 2px solid #d9a5bc;
-		border-bottom: 0;
-		border-radius: 12px 12px 0 0;
 	}
 
 	.memo-card ul {
@@ -542,8 +454,37 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 		color: #7c4d66;
 	}
 
+	.dot-grid {
+		position: absolute;
+		inset: 28px;
+		opacity: 0.16;
+		background-image: radial-gradient(#7c4d66 1px, transparent 1px);
+		background-size: 18px 18px;
+	}
+
+	.star-one,
+	.star-two {
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		background: #d9a5bc;
+		clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
+		opacity: 0.45;
+	}
+
+	.star-one {
+		top: 34px;
+		right: 250px;
+	}
+
+	.star-two {
+		left: 82px;
+		bottom: 42px;
+		transform: scale(0.8);
+	}
+
 	.for-readers {
-		padding-top: 44px;
+		padding-top: 52px;
 		padding-bottom: 72px;
 		background: #fff;
 	}
@@ -736,23 +677,18 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 		background: #fff;
 	}
 
-	.article-layout {
+	.article-grid {
 		display: grid;
-		grid-template-columns: minmax(300px, 1.05fr) minmax(0, 1.45fr);
-		gap: 24px;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 20px;
 		align-items: stretch;
-	}
-
-	.regular-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 18px;
 	}
 
 	.article-card {
 		display: flex;
 		flex-direction: column;
-		min-height: 260px;
+		min-height: 270px;
+		height: 100%;
 		padding: 24px;
 		border: 1px solid #eee4eb;
 		border-radius: 24px;
@@ -764,14 +700,6 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 			transform 140ms ease,
 			box-shadow 140ms ease,
 			border-color 140ms ease;
-	}
-
-	.feature-card {
-		min-height: 100%;
-		padding: 32px;
-		background:
-			radial-gradient(circle at 100% 0%, rgba(238, 243, 248, 0.9), transparent 34%),
-			#fff8fb;
 	}
 
 	.article-card:hover {
@@ -799,21 +727,11 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 		letter-spacing: 0.01em;
 	}
 
-	.feature-card h3 {
-		font-size: clamp(1.6rem, 3vw, 2.2rem);
-		line-height: 1.35;
-	}
-
 	.article-card p {
 		margin: 0;
 		color: #625b66;
 		font-size: 14px;
 		line-height: 1.85;
-	}
-
-	.feature-card p {
-		font-size: 1rem;
-		line-height: 1.9;
 	}
 
 	.read-more {
@@ -825,21 +743,13 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 	}
 
 	@media (max-width: 1040px) {
-		.hero-grid,
-		.article-layout {
-			grid-template-columns: 1fr;
-		}
-
-		.hero-visual {
-			max-width: 620px;
-			width: 100%;
-			margin: 0 auto;
+		.article-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 
 	@media (max-width: 900px) {
-		.reader-list,
-		.regular-grid {
+		.reader-list {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
@@ -854,13 +764,13 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 			padding-bottom: 56px;
 		}
 
+		.hero-copy {
+			text-align: left;
+		}
+
 		.hero-title {
 			font-size: clamp(36px, 11vw, 48px);
 			line-height: 1.18;
-		}
-
-		.hero-line {
-			white-space: normal;
 		}
 
 		.lead,
@@ -879,28 +789,26 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 		}
 
 		.hero-visual {
-			min-height: 360px;
+			min-height: 340px;
 			border-radius: 28px;
 		}
 
 		.ticket-card {
-			left: 24px;
-			top: 32px;
+			left: 20px;
+			top: 26px;
+			width: 170px;
 		}
 
 		.camera-card {
-			right: 24px;
+			right: 20px;
 			top: 86px;
+			width: 140px;
 		}
 
 		.memo-card {
-			left: 30px;
-			bottom: 36px;
-		}
-
-		.bag-card {
-			right: 24px;
-			bottom: 86px;
+			left: 26px;
+			bottom: 30px;
+			width: 190px;
 		}
 
 		.soft-panel {
@@ -914,7 +822,7 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 
 		.reader-list,
 		.topic-grid,
-		.regular-grid {
+		.article-grid {
 			grid-template-columns: 1fr;
 		}
 
@@ -922,10 +830,6 @@ const [featureArticle, ...regularArticles] = featuredArticles;
 		.topic-card,
 		.article-card {
 			min-height: auto;
-		}
-
-		.feature-card {
-			padding: 26px;
 		}
 	}
 </style>
