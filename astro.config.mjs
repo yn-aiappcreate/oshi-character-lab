@@ -6,7 +6,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://oshi-character-lab.pages.dev',
+	site: 'https://oshi-character-lab-auto.pages.dev',
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
